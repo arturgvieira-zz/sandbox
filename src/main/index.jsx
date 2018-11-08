@@ -17,12 +17,11 @@ class Main extends Component {
         const { test } = this.state;
         return (
             <div className="Main">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        {test}
-                    </p>
-                </header>
+                <div className="main_container-border">
+                    <div className="main_container-content">
+                        
+                    </div>
+                </div>
             </div> 
         );
     }

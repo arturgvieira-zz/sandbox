@@ -1,3 +1,26 @@
 .Main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: white;
     text-align: center;
+}
+
+.main_container-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 325px;
+    height: 425px;
+    border: 2px solid #CBB8FF;
+    border-radius: 25px;
+    background: transparent;
+}
+
+.main_container-content {
+    background: linear-gradient(to right, #5AC7EA, #5393FE);
+    height: 75%;
+    width: stretch;
 }
