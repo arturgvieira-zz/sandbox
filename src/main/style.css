@@ -10,17 +10,58 @@
 
 .main_container-border {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 325px;
-    height: 425px;
+    width: 275px;
+    height: 375px;
     border: 2px solid #CBB8FF;
     border-radius: 25px;
     background: transparent;
 }
 
 .main_container-content {
+    align-self: center;
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 10% repeat(4, 13%) 10%;
+    grid-template-areas:
+    ". . . . . . . . ." 
+    ". a a a a a a a ."
+    ". b b b b b . . ."
+    ". . . c c c c c ."
+    ". d d d d d d d ."
+    ". . . . . . . . .";
+
     background: linear-gradient(to right, #5AC7EA, #5393FE);
     height: 75%;
     width: stretch;
+}
+
+.fields {
+    border-radius: 12px;
+    border: 1px solid white;
+    background: transparent;
+}
+
+.fields::placeholder {
+    text-align: center;
+    color: white;
+}
+
+.main_content-amount {
+    grid-area: a;
+}
+
+.main_content-sell {
+    grid-area: b;
+}
+
+.main_content-buy {
+    grid-area: c;
+}
+
+.main_content-result {
+    grid-area: d;
 }

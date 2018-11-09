@@ -8,6 +8,7 @@
     "chalk": "^2.4.1",
     "express": "^4.16.4",
     "graphql": "^14.0.2",
+    "prettier": "^1.15.1",
     "react": "^16.6.1",
     "react-apollo": "^2.2.4",
     "react-dom": "^16.6.1",
@@ -19,7 +20,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=development npm-run-all --parallel ui server",
-    "ui": "react-scripts start",
+    "ui": "HOST=0.0.0.0 react-scripts start",
     "server": "nodemon --experimental-modules server/index.mjs",
     "build": "react-scripts build",
     "test": "react-scripts test",
