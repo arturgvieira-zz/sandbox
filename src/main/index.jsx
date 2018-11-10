@@ -19,9 +19,11 @@ class Main extends Component {
                 <div className="main_container-border">
                     <div className="main_container-content">
                         <input className="fields main_content-amount" placeholder="Amount" />
-                        <input className="fields main_content-sell" />
-                        <input className="fields main_content-buy" />
+                        <input className="fields main_content-sell" placeholder="Sell" />
+                        <input className="fields main_content-buy" placeholder="Buy" />
                         <input className="fields main_content-result" placeholder="0.00" />
+                        <div className="token fields token_content-sell">Sell</div>
+                        <div className="token fields token_content-buy">Buy</div>
                     </div>
                 </div>
             </div>
