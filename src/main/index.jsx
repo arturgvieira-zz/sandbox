@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import './style.css';
 import gql from 'graphql-tag';
 import { withApollo } from 'react-apollo';
 import buyImage from './resources/currency-mobi.png';
 import sellImage from './resources/currency-xlm.png';
 
 import {
+    Page,
+    Border,
     Container,
-    Content,
-    Gradient
+    Amount,
+    SellAsset,
+    BuyAsset,
+    Result,
+    SellToken,
+    BuyToken
 } from './styles';
 
 class Main extends Component {
@@ -36,17 +41,14 @@ class Main extends Component {
         return (
             <Page>
                 <Border>
-                    <Content>
-                        <Fields>
-                            <Amount placeholder="Amount" onChange={this.onChange} name="amount" value={amount || ''} />
-
-                            <div className="fields main_content-sell">{sell}</div>
-                            <div className="fields main_content-buy">{buy}</div>
-                            <div className="fields main_content-result">{result}</div>
-                            <div className="token fields token_content-sell"><img className="token-image sell" src={sellIcon} alt="Sell Token" /></div>
-                            <div className="token fields token_content-buy"><img className="token-image buy" src={buyIcon} alt="Buy Token" /></div>
-                        </Fields>
-                    </Content>
+                    <Container>
+                        <Amount placeholder="Amount" onChange={this.onChange} name="amount" value={amount || ''} />
+                        <SellAsset>{sell}</SellAsset>
+                        <BuyAsset >{buy}</BuyAsset>
+                        <Result>{result}</Result>
+                        <SellToken src={sellIcon} alt="Sell Token" />
+                        <BuyToken src={buyIcon} alt="Buy Token" />   
+                    </Container>
                 </Border>
             </Page>
         );
