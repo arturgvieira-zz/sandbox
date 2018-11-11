@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Page = styled.div`
+export const View = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ export const Border = styled.div`
     align-items: center;
     width: 275px;
     height: 375px;
-    border: 2px solid #CBB8FF;
+    border: 2px solid #cbb8ff;
     border-radius: 25px;
     background: transparent;
 `;
@@ -29,15 +29,23 @@ export const Container = styled.div`
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: 6.5% repeat(4, 15%) 10%;
     grid-template-areas:
-    ". . . . . . . . ."
-    ". a a a a a a a ."
-    ". b b b x x . . ."
-    ". . . y y c c c ."
-    ". d d d d d d d ."
-    ". . . . . . . . .";
-    background: linear-gradient(to right, #5AC7EA, #5393FE);
+        '. . . . . . . . .'
+        '. a a a a a a a .'
+        '. b b b x x . . .'
+        '. . . y y c c c .'
+        '. d d d d d d d .'
+        '. . . . . . . . .';
+    background: linear-gradient(to right, #5ac7ea, #5393fe);
     height: 75%;
     width: stretch;
+`;
+
+const TokenMenu = styled.div`
+    display: inline-block;
+    position: relative;
+    border-bottom: 1px dotted #666;
+    text-align: left;
+    background: white;
 `;
 
 const Fields = styled.div`
@@ -55,8 +63,20 @@ const Fields = styled.div`
     }
 `;
 
-export const Amount = styled(Fields)`
+export const Amount = styled.input`
     grid-area: a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: 1px solid white;
+    background: transparent;
+    text-align: center;
+    color: white;
+    &::placeholder {
+        text-align: center;
+        color: white;
+    }
 `;
 
 export const SellAsset = styled(Fields)`
@@ -71,9 +91,9 @@ export const BuyAsset = styled(Fields)`
     grid-area: c;
     display: flex;
     justify-content: flex-end;
-    padding-right: 15px;
+    padding-right: 20px;
     width: 105%;
-    margin-left: -27.5%;
+    margin-left: -32.5%;
 `;
 
 export const Result = styled(Fields)`
@@ -81,6 +101,9 @@ export const Result = styled(Fields)`
 `;
 
 const Token = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 12px;
     border-radius: 25px;
 `;
@@ -99,6 +122,6 @@ export const BuyToken = styled(Token)`
     background: white;
 `;
 
-export const TokenIcon = styled.div`
+export const TokenIcon = styled.img`
     height: 25px;
 `;
