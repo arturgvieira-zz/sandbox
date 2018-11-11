@@ -25,7 +25,7 @@
     display: grid;
     grid-gap: 15px;
     grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: 10% repeat(4, 13%) 10%;
+    grid-template-rows: 6.5% repeat(4, 15%) 10%;
     grid-template-areas:
     ". . . . . . . . ." 
     ". a a a a a a a ."
@@ -40,9 +40,14 @@
 }
 
 .fields {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 12px;
     border: 1px solid white;
     background: transparent;
+    text-align: center;
+    color: white;
 }
 
 .fields::placeholder {
@@ -56,23 +61,19 @@
 
 .main_content-sell {
     grid-area: b;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
     width: 105%;
-}
-
-.main_content-sell::placeholder {
-    text-align: left;
-    padding-left: 25px;
 }
 
 .main_content-buy {
     grid-area: c;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
     width: 105%;
-    margin-left: -10%;
-}
-
-.main_content-buy::placeholder {
-    text-align: right;
-    padding-right: 25px;
+    margin-left: -27.5%;
 }
 
 .main_content-result {
@@ -85,9 +86,6 @@
 
 .token_content-sell {
     grid-area: x;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 150%;
     margin-left: -60%;
     background: white;
@@ -95,10 +93,11 @@
 
 .token_content-buy {
     grid-area: y;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 150%;
     margin-left: 5%;
     background: white;
+}
+
+.token-image {
+    height: 25px;
 }

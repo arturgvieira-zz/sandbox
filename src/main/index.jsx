@@ -2,28 +2,41 @@ import React, { Component } from 'react';
 import './style.css';
 import gql from 'graphql-tag';
 import { withApollo } from 'react-apollo';
+import buyImage from './resources/currency-mobi.png';
+import sellImage from './resources/currency-xlm.png';
 
 class Main extends Component {
-    state = {};
+    state = {
+        sell: "XLM",
+        buy: "MOBI",
+        result: "25000",
+        sellIcon: sellImage,
+        buyIcon: buyImage
+    };
 
     async componentDidMount() {
         const result = await this.props.client.query({
             query: test
         });
-        this.setState({ test: result.data.test })
+        this.setState({ test: result.data.test });
     }
+
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
     render() {
-        // const { test } = this.state;
+        const { amount, sell, buy, result, sellIcon, buyIcon } = this.state;
         return (
             <div className="Main">
                 <div className="main_container-border">
                     <div className="main_container-content">
-                        <input className="fields main_content-amount" placeholder="Amount" />
-                        <input className="fields main_content-sell" placeholder="Sell" />
-                        <input className="fields main_content-buy" placeholder="Buy" />
-                        <input className="fields main_content-result" placeholder="0.00" />
-                        <div className="token fields token_content-sell">Sell</div>
-                        <div className="token fields token_content-buy">Buy</div>
+                        <input className="fields main_content-amount" placeholder="Amount" onChange={this.onChange} name="amount" value={amount || ''} />
+                        <div className="fields main_content-sell">{sell}</div>
+                        <div className="fields main_content-buy">{buy}</div>
+                        <div className="fields main_content-result">{result}</div>
+                        <div className="token fields token_content-sell"><img className="token-image sell" src={sellIcon} alt="Sell Token" /></div>
+                        <div className="token fields token_content-buy"><img className="token-image buy" src={buyIcon} alt="Buy Token" /></div>
                     </div>
                 </div>
             </div>
