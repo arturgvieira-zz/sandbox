@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 // Apollo Client Configuration
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';

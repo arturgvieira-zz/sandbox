@@ -1,4 +1,4 @@
-.Main {
+const Page = styled.View`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,9 +6,9 @@
     height: 100vh;
     background: white;
     text-align: center;
-}
+`;
 
-.main_container-border {
+const Border = styled.View`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,16 +18,16 @@
     border: 2px solid #CBB8FF;
     border-radius: 25px;
     background: transparent;
-}
+`;
 
-.main_container-content {
+const Container = styled.View`
     align-self: center;
     display: grid;
     grid-gap: 15px;
     grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: 6.5% repeat(4, 15%) 10%;
+    grid-template-rows: 6.5 % repeat(4, 15 %) 10 %;
     grid-template-areas:
-    ". . . . . . . . ." 
+    ". . . . . . . . ."
     ". a a a a a a a ."
     ". b b b x x . . ."
     ". . . y y c c c ."
@@ -35,11 +35,11 @@
     ". . . . . . . . .";
 
     background: linear-gradient(to right, #5AC7EA, #5393FE);
-    height: 75%;
+    height: 75 %;
     width: stretch;
-}
+`;
 
-.fields {
+const Fields = styled.Text`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,56 +48,55 @@
     background: transparent;
     text-align: center;
     color: white;
-}
+    &::-webkit-input-placeholder {
+        text-align: center;
+        color: white;
+    }
+`;
 
-.fields::placeholder {
-    text-align: center;
-    color: white;
-}
-
-.main_content-amount {
+const Amount = styled.View`
     grid-area: a;
-}
+`;
 
-.main_content-sell {
+const SellAsset = styled.View`
     grid-area: b;
     display: flex;
     justify-content: flex-start;
     padding-left: 20px;
-    width: 105%;
-}
+    width: 105 %;
+`;
 
-.main_content-buy {
+const BuyAsset = styled.View`
     grid-area: c;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex - end;
     padding-right: 15px;
-    width: 105%;
-    margin-left: -27.5%;
-}
+    width: 105 %;
+    margin-left: -27.5 %;
+`;
 
-.main_content-result {
+const Result = styled.View`
     grid-area: d;
-}
+`;
 
-.token {
+const Token = styled.View`
     font-size: 12px;
-}
+`;
 
-.token_content-sell {
+const SellToken = styled.View`
     grid-area: x;
-    width: 150%;
-    margin-left: -60%;
+    width: 150 %;
+    margin-left: -60 %;
     background: white;
-}
+`;
 
-.token_content-buy {
+const BuyToken = styled.View`
     grid-area: y;
-    width: 150%;
-    margin-left: 5%;
+    width: 150 %;
+    margin-left: 5 %;
     background: white;
-}
+`;
 
-.token-image {
+const TokenIcon = styled.View`
     height: 25px;
-}
+`;
