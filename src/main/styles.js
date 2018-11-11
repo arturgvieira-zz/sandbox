@@ -8,6 +8,7 @@ export const View = styled.div`
     height: 100vh;
     background: white;
     text-align: center;
+    font-size: 12px;
 `;
 
 export const Border = styled.div`
@@ -38,14 +39,6 @@ export const Container = styled.div`
     background: linear-gradient(to right, #5ac7ea, #5393fe);
     height: 75%;
     width: stretch;
-`;
-
-const TokenMenu = styled.div`
-    display: inline-block;
-    position: relative;
-    border-bottom: 1px dotted #666;
-    text-align: left;
-    background: white;
 `;
 
 const Fields = styled.div`
@@ -104,7 +97,6 @@ const Token = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
     border-radius: 25px;
 `;
 

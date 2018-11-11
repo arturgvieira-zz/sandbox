@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import { withApollo } from 'react-apollo';
 import buyImage from './resources/currency-mobi.png';
 import sellImage from './resources/currency-xlm.png';
+import TokenMenu from '../menu';
 
 import {
     View,
@@ -21,7 +22,7 @@ class Main extends Component {
     state = {
         sell: 'XLM',
         buy: 'MOBI',
-        result: '25000',
+        result: 'Result',
         sellIcon: sellImage,
         buyIcon: buyImage
     };
@@ -30,15 +31,12 @@ class Main extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
-    showTokenMenu = () => {};
-
     render() {
         const { amount, sell, buy, result, sellIcon, buyIcon } = this.state;
         return (
             <View>
                 <Border>
                     <Container>
-                        <TokenMenu />
                         <Amount
                             placeholder="Amount"
                             onChange={this.onChange}
@@ -49,14 +47,18 @@ class Main extends Component {
                         <BuyAsset>{buy}</BuyAsset>
                         <Result>{result}</Result>
                         <SellToken>
-                            <TokenIcon
-                                src={sellIcon}
-                                alt="Sell Token"
-                                onClick={this.showTokenMenu}
-                            />
+                            <TokenMenu>
+                                <TokenIcon
+                                    src={sellIcon}
+                                    alt="Sell Token"
+                                    onClick={this.showTokenMenu}
+                                />
+                            </TokenMenu>
                         </SellToken>
                         <BuyToken>
-                            <TokenIcon src={buyIcon} alt="Buy Token" />
+                            <TokenMenu>
+                                <TokenIcon src={buyIcon} alt="Buy Token" />
+                            </TokenMenu>
                         </BuyToken>
                     </Container>
                 </Border>
