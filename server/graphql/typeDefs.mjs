@@ -2,7 +2,7 @@
 const typeDefs = `
     type Query {
         test: String
-        rate: String
+        rate(sell: String!, buy: String!, amount: String!): String
     }
 `;
 

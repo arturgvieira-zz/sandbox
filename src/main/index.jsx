@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import gql from 'graphql-tag';
 import { withApollo } from 'react-apollo';
 import buyImage from './resources/currency-mobi.png';
 import sellImage from './resources/currency-xlm.png';
@@ -74,11 +73,5 @@ class Main extends Component {
         );
     }
 }
-
-const test = gql`
-    query test {
-        test
-    }
-`;
 
 export default withApollo(Main);

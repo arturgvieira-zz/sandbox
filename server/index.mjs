@@ -21,10 +21,10 @@ server.applyMiddleware({
     app,
     path: '/graphql',
     cors: {
-        origin: ['https://3000-attendaminoferret.cdr.co']
+        origin: ['http://localhost:3000']
     }
 });
 
-http
-    .createServer(app)
-    .listen(8080, '0.0.0.0', (err) => console.log('🚀  Server Ready'));
+http.createServer(app).listen(8080, '0.0.0.0', (err) =>
+    console.log('🚀  Server Ready')
+);

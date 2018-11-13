@@ -1,8 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { withApollo } from 'react-apollo';
-import mobiIcon from './resources/currency-mobi.png';
-import xlmIcon from './resources/currency-xlm.png';
 
 import {
     View,
@@ -31,8 +29,16 @@ class Menu extends Component {
         if (nextProps.menu === false) this.setState({ menu: false });
     };
 
+    getRate = async () => {
+        const result = await this.props.client.query({
+            query: rate
+        });
+
+        this.setState({ rate: result.data.rate });
+    };
+
     render() {
-        const { menu, asset } = this.state;
+        const { menu, asset, rate } = this.state;
         const settings = {
             showArrows: false,
             showDots: false,
@@ -55,12 +61,13 @@ class Menu extends Component {
                             />
 
                             <HorizontalList {...settings}>
-                                <TokenIcon src={mobiIcon} alt="Sell Token" />
-                                <TokenIcon src={xlmIcon} alt="Sell Token" />
-                                <TokenIcon src={mobiIcon} alt="Sell Token" />
-                                <TokenIcon src={xlmIcon} alt="Sell Token" />
-                                <TokenIcon src={mobiIcon} alt="Sell Token" />
-                                <TokenIcon src={xlmIcon} alt="Sell Token" />
+                                {rate &&
+                                    rate.map((item) => (
+                                        <TokenIcon
+                                            src={item.token}
+                                            alt={`${item.symbol} Token`}
+                                        />
+                                    ))}
                             </HorizontalList>
                             <Text>Token Name (Symbol)</Text>
                         </Content>
@@ -71,9 +78,9 @@ class Menu extends Component {
     }
 }
 
-const test = gql`
-    query test {
-        test
+const rate = gql`
+    query rate($sell: String!, $buy: String!) {
+        rate(sell: $sell, buy: $buy)
     }
 `;
 
