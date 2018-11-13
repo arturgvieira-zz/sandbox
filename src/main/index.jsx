@@ -31,8 +31,20 @@ class Main extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
+    clearTokenMenu = () => {
+        this.setState({ menu: false });
+    };
+
     render() {
-        const { amount, sell, buy, result, sellIcon, buyIcon } = this.state;
+        const {
+            amount,
+            sell,
+            buy,
+            result,
+            sellIcon,
+            menu,
+            buyIcon
+        } = this.state;
         return (
             <View>
                 <Border>
@@ -47,16 +59,12 @@ class Main extends Component {
                         <BuyAsset>{buy}</BuyAsset>
                         <Result>{result}</Result>
                         <SellToken>
-                            <TokenMenu>
-                                <TokenIcon
-                                    src={sellIcon}
-                                    alt="Sell Token"
-                                    onClick={this.showTokenMenu}
-                                />
+                            <TokenMenu menu={menu}>
+                                <TokenIcon src={sellIcon} alt="Sell Token" />
                             </TokenMenu>
                         </SellToken>
                         <BuyToken>
-                            <TokenMenu>
+                            <TokenMenu update={this.clearTokenMenu}>
                                 <TokenIcon src={buyIcon} alt="Buy Token" />
                             </TokenMenu>
                         </BuyToken>

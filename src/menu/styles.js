@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Slider from 'react-styled-carousel';
 
 export const View = styled.div`
     position: relative;
@@ -26,13 +27,13 @@ export const Container = styled.div`
         0px 2px 1px -1px rgba(0, 0, 0, 0.12);
     color: #555;
     text-align: center;
-    padding: 5px 0;
+    padding: 5px 10px;
     border-radius: 15px;
     position: absolute;
     z-index: 1;
     bottom: 240%;
     left: -20%;
-    margin-left: -97px;
+    margin-left: -106px;
     transition: opacity 0.3s;
     ::after {
         content: '';
@@ -49,16 +50,17 @@ export const Container = styled.div`
 export const Content = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
+    justify-content: space-evenly;
     align-items: center;
     height: 100%;
+    overflow-x: hidden;
 `;
 
 export const Search = styled.input`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 40px;
+    height: 25px;
     width: 90%;
     border: none;
     background: transparent;
@@ -68,18 +70,19 @@ export const Search = styled.input`
     border-bottom: 1px solid #c0c0c0;
 `;
 
-export const HorizontalList = styled.div`
+export const HorizontalList = styled(Slider)`
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: 100%;
-    width: stretch;
-    padding: 0 5px;
-    overflow-x: scroll;
 `;
 
 export const TokenIcon = styled.img`
     height: 40px;
-    margin: 0 5px;
+    width: 40px;
+`;
+
+export const Text = styled.div`
+    width: 100%;
 `;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import gql from 'graphql-tag';
 import { withApollo } from 'react-apollo';
 import mobiIcon from './resources/currency-mobi.png';
@@ -11,22 +11,34 @@ import {
     Token,
     Search,
     HorizontalList,
-    TokenIcon
+    TokenIcon,
+    Text
 } from './styles';
 
 class Menu extends Component {
-    state = { menu: true };
+    state = { menu: false };
 
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     };
 
     showTokenMenu = () => {
+        this.props.update && this.props.update();
         this.setState({ menu: !this.state.menu });
+    };
+
+    componentWillReceiveProps = (nextProps, nextState) => {
+        if (nextProps.menu === false) this.setState({ menu: false });
     };
 
     render() {
         const { menu, asset } = this.state;
+        const settings = {
+            showArrows: false,
+            showDots: false,
+            cardsToShow: 5,
+            margin: '5px 25px'
+        };
         return (
             <View>
                 <Token onClick={this.showTokenMenu}>
@@ -41,10 +53,16 @@ class Menu extends Component {
                                 name="asset"
                                 value={asset || ''}
                             />
-                            <HorizontalList>
+
+                            <HorizontalList {...settings}>
+                                <TokenIcon src={mobiIcon} alt="Sell Token" />
+                                <TokenIcon src={xlmIcon} alt="Sell Token" />
+                                <TokenIcon src={mobiIcon} alt="Sell Token" />
+                                <TokenIcon src={xlmIcon} alt="Sell Token" />
                                 <TokenIcon src={mobiIcon} alt="Sell Token" />
                                 <TokenIcon src={xlmIcon} alt="Sell Token" />
                             </HorizontalList>
+                            <Text>Token Name (Symbol)</Text>
                         </Content>
                     </Container>
                 )}

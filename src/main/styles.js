@@ -117,3 +117,7 @@ export const BuyToken = styled(Token)`
 export const TokenIcon = styled.img`
     height: 25px;
 `;
+
+export const Text = styled.p`
+    width: 100%;
+`;
