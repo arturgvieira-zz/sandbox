@@ -2,6 +2,7 @@
 const typeDefs = `
     type Query {
         test: String
+        rate: String
     }
 `;
 
