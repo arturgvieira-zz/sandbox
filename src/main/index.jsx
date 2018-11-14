@@ -3,6 +3,7 @@ import { withApollo } from 'react-apollo';
 import buyImage from './resources/currency-mobi.png';
 import sellImage from './resources/currency-xlm.png';
 import TokenMenu from '../menu';
+import ButtonComponent from '../button';
 
 import {
     View,
@@ -14,7 +15,8 @@ import {
     Result,
     SellToken,
     BuyToken,
-    TokenIcon
+    TokenIcon,
+    Button
 } from './styles';
 
 class Main extends Component {
@@ -67,6 +69,9 @@ class Main extends Component {
                                 <TokenIcon src={buyIcon} alt="Buy Token" />
                             </TokenMenu>
                         </BuyToken>
+                        <Button>
+                            <ButtonComponent />
+                        </Button>
                     </Container>
                 </Border>
             </View>

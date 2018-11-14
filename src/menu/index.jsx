@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { withApollo } from 'react-apollo';
+import mobiIcon from './resources/currency-mobi.png';
+import xlmIcon from './resources/currency-xlm.png';
+import uuid from 'uuid/v4';
 
 import {
     View,
@@ -9,12 +12,21 @@ import {
     Token,
     Search,
     HorizontalList,
-    TokenIcon,
-    Text
+    TokenIcon
 } from './styles';
 
 class Menu extends Component {
-    state = { menu: false };
+    state = {
+        menu: false,
+        rate: [
+            { token: mobiIcon, name: 'Mobius', symbol: 'MOBI' },
+            { token: xlmIcon, name: 'Lumen', symbol: 'XLM' },
+            { token: mobiIcon, name: 'Mobius', symbol: 'MOBI' },
+            { token: xlmIcon, name: 'Lumen', symbol: 'XLM' },
+            { token: mobiIcon, name: 'Mobius', symbol: 'MOBI' },
+            { token: xlmIcon, name: 'Lumen', symbol: 'XLM' }
+        ]
+    };
 
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
@@ -60,16 +72,18 @@ class Menu extends Component {
                                 value={asset || ''}
                             />
 
-                            <HorizontalList {...settings}>
+                            <HorizontalList
+                                {...settings}
+                                ref={(input) => (this.list = input)}>
                                 {rate &&
                                     rate.map((item) => (
                                         <TokenIcon
+                                            key={uuid()}
                                             src={item.token}
                                             alt={`${item.symbol} Token`}
                                         />
                                     ))}
                             </HorizontalList>
-                            <Text>Token Name (Symbol)</Text>
                         </Content>
                     </Container>
                 )}

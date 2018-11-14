@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import image from './resources/button.png';
 
-class New extends Component {
-    
+import { View } from './styles';
+class Button extends Component {
+    render() {
+        return <View src={image} alt="Swap Button" />;
+    }
 }
 
-export default New;
+export default Button;

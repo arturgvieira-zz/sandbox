@@ -33,12 +33,21 @@ export const Container = styled.div`
         '. . . . . . . . .'
         '. a a a a a a a .'
         '. b b b x x . . .'
-        '. . . y y c c c .'
+        '. z . y y c c c .'
         '. d d d d d d d .'
         '. . . . . . . . .';
     background: linear-gradient(to right, #5ac7ea, #5393fe);
     height: 75%;
     width: stretch;
+`;
+
+export const Button = styled.div`
+    grid-area: z;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: -200%;
 `;
 
 const Fields = styled.div`
@@ -116,8 +125,4 @@ export const BuyToken = styled(Token)`
 
 export const TokenIcon = styled.img`
     height: 25px;
-`;
-
-export const Text = styled.p`
-    width: 100%;
 `;
